@@ -27,12 +27,12 @@ export class SpellsController {
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.spellsService.findOne(+id);
+    return this.spellsService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateSpellDto: UpdateSpellDto) {
-    return this.spellsService.update(+id, updateSpellDto);
+    return this.spellsService.update(id, updateSpellDto);
   }
 
   @Delete(':id')

@@ -4,6 +4,6 @@ import { SpellsController } from './spells.controller';
 
 @Module({
   controllers: [SpellsController],
-  providers: [SpellsService]
+  providers: [SpellsService],
 })
 export class SpellsModule {}
