@@ -22,15 +22,16 @@ export class SpellsService extends BaseService<Spell> {
   async findAll(): Promise<Spell[]> {
     return this._spellModel.find().exec();
   }
-//   async findOne(id: string) {
-//     return `This action returns a #${id} spell`;
-//   }
+  //   async findOne(id: string) {
+  //     return `This action returns a #${id} spell`;
+  //   }
 
-//   async update(id: string, updateSpellDto: UpdateSpellDto) {
-//     return `This action updates a #${id} spell`;
-//   }
+  //   async update(id: string, updateSpellDto: UpdateSpellDto) {
+  //     return `This action updates a #${id} spell`;
+  //   }
 
-//   remove(id: number) {
-//     return `This action removes a #${id} spell`;
-//   }
-// }
+  //    async remove(id: number) {
+  //     return `This action removes a #${id} spell`;
+  //   }
+  // }
+}
