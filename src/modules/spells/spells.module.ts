@@ -1,9 +1,16 @@
 import { Module } from '@nestjs/common';
-import { SpellsService } from './spells.service';
+import { MongooseModule } from '@nestjs/mongoose';
+
+import { Spell, SpellSchema } from './entities/spell.entity';
 import { SpellsController } from './spells.controller';
+import { SpellsService } from './spells.service';
 
 @Module({
+  imports: [
+    MongooseModule.forFeature([{ name: Spell.name, schema: SpellSchema }]),
+  ],
   controllers: [SpellsController],
   providers: [SpellsService],
+  exports: [SpellsService],
 })
 export class SpellsModule {}

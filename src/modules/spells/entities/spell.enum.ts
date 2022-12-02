@@ -1,19 +1,19 @@
 export enum Classes {
-  'None',
-  'Custom',
-  'Artificer',
-  'Barbarian',
-  'Bard',
-  'Cleric',
-  'Druid',
-  'Fighter',
-  'Mage',
-  'Monk',
-  'Paladin',
-  'Rogue',
-  'Ranger',
-  'Sorcerer',
-  'Warlock',
+  None = 'None',
+  Custom = 'Custom',
+  Artificer = 'Artificer',
+  Barbarian = 'Barbarian',
+  Bard = 'Bard',
+  Cleric = 'Cleric',
+  Druid = 'Druid',
+  Fighter = 'Fighter',
+  Mage = 'Mage',
+  Monk = 'Monk',
+  Paladin = 'Paladin',
+  Rogue = 'Rogue',
+  Ranger = 'Ranger',
+  Sorcerer = 'Sorcerer',
+  Warlock = 'Warlock',
 }
 
 export enum MagicSchool {
@@ -34,6 +34,7 @@ export enum MagicComponents {
   Somatic = 'S',
   Material = 'M',
 }
+
 export enum DamageType {
   'None',
   'Custom',
@@ -51,6 +52,7 @@ export enum DamageType {
   'Slashing',
   'Thunder',
 }
+
 export enum SpellCondition {
   'None',
   'Custom',
@@ -69,4 +71,13 @@ export enum SpellCondition {
   'Restrained',
   'Stunned',
   'Unconscious',
+}
+
+export enum CastingTime {
+  None,
+  Concentration,
+  Instantaneous,
+  Action,
+  Reaction,
+  ActionBonus,
 }
