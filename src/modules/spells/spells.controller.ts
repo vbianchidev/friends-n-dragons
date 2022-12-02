@@ -37,6 +37,6 @@ export class SpellsController {
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.spellsService.remove(+id);
+    return this.spellsService.remove(id);
   }
 }
