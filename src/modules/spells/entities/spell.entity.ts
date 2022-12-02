@@ -32,4 +32,5 @@ export class Spell {
   @Prop()
   duration: string;
 }
+
 export const SpellSchema = SchemaFactory.createForClass(Spell);

@@ -2,8 +2,8 @@ import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { BaseService } from 'src/core/base/base.service';
+
 import { CreateSpellDto } from './dto/create-spell.dto';
-import { UpdateSpellDto } from './dto/update-spell.dto';
 import { Spell, spellDocument } from './entities/spell.entity';
 
 @Injectable()

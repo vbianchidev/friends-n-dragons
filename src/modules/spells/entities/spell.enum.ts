@@ -15,6 +15,7 @@ export enum Classes {
   'Sorcerer',
   'Warlock',
 }
+
 export enum MagicSchool {
   'None',
   'Custom',
@@ -27,6 +28,7 @@ export enum MagicSchool {
   'Illusion',
   'Necromancy',
 }
+
 export enum MagicComponents {
   Visual = 'V',
   Somatic = 'S',
