@@ -18,7 +18,7 @@ export class Spell {
   @Prop({ required: true })
   description: string;
 
-  @Prop({ default: 0 })
+  @Prop({ default: 0, max: 9 })
   level?: number;
 
   @Prop({ default: [SpellCondition.None] })
