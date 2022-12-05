@@ -13,7 +13,7 @@ import { CreateSpellDto } from './dto/create-spell.dto';
 import { UpdateSpellDto } from './dto/update-spell.dto';
 import { ApiTags } from '@nestjs/swagger';
 import { Public } from 'src/core/auth/auth.constants';
-import { PaginationParams } from './params/paginationParams';
+import { PaginationParams } from '../../core/constants/pagination-params';
 
 @ApiTags('spells')
 @Controller('spells')
@@ -23,18 +23,19 @@ export class SpellsController {
   @Public()
   @Post()
   create(@Body() createSpellDto: CreateSpellDto) {
-    return this.spellsService.create(createSpellDto);
+    return this.spellsService.newSpell(createSpellDto);
   }
+
   @Public()
   @Get()
   async getAllPosts(@Query() { skip, limit }: PaginationParams) {
-    return this.spellsService.findAll(skip, limit);
+    return this.spellsService.findAllPaged(skip, limit);
   }
 
   @Public()
   @Get(':id')
-  findOne(@Param(':id') id: string) {
-    return this.spellsService.findOne();
+  findOne(@Param('id') id: string) {
+    return this.spellsService.findOne(id);
   }
 
   @Public()

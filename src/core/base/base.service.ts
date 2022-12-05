@@ -1,29 +1,29 @@
 import { Model } from 'mongoose';
 
 export class BaseService<T> {
-  repository: Model<T>;
+  private _repository: Model<T>;
 
   constructor(repository: Model<T>) {
-    this.repository = repository;
+    this._repository = repository;
   }
 
   findAll(): Promise<T[]> {
-    return this.repository.find().exec();
+    return this._repository.find().exec();
   }
 
   findOne(id: string): Promise<T> {
-    return this.repository.findById(id).exec();
+    return this._repository.findById(id).exec();
   }
 
-  create(createDTO: T): Promise<T> {
-    return this.repository.create(createDTO);
+  create(createDTO: any): Promise<T> {
+    return this._repository.create(createDTO);
   }
 
-  update(id: string, updateDTO: Partial<T>) {
-    return this.repository.findByIdAndUpdate(id, updateDTO);
+  update(id: string, updateDTO: Partial<any>) {
+    return this._repository.findByIdAndUpdate(id, updateDTO);
   }
 
   remove(id: string) {
-    return this.repository.findByIdAndDelete(id).exec();
+    return this._repository.findByIdAndDelete(id).exec();
   }
 }
