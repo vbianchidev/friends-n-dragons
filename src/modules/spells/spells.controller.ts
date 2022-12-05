@@ -28,8 +28,8 @@ export class SpellsController {
 
   @Public()
   @Get()
-  async getAllPosts(@Query() { skip, limit }: PaginationParams) {
-    return this.spellsService.findAllPaged(skip, limit);
+  async getAllPosts(@Query() { page_number, page_size }: PaginationParams) {
+    return this.spellsService.findAllPaged(page_number, page_size);
   }
 
   @Public()

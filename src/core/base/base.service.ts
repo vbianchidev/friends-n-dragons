@@ -1,7 +1,7 @@
 import { Model } from 'mongoose';
 
 export class BaseService<T> {
-  private _repository: Model<T>;
+  _repository: Model<T>;
 
   constructor(repository: Model<T>) {
     this._repository = repository;
