@@ -11,7 +11,9 @@ import { MainModule } from './modules/main.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost:27017/fnd'),
+    MongooseModule.forRoot(
+      'mongodb+srv://vbianchi:AB123456!@fnd-database.qwwmxia.mongodb.net/fnd',
+    ),
     TerminusModule,
     HealthModule,
     MainModule,
