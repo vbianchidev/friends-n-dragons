@@ -13,7 +13,7 @@ import { CreateSpellDto } from './dto/create-spell.dto';
 import { UpdateSpellDto } from './dto/update-spell.dto';
 import { ApiTags } from '@nestjs/swagger';
 import { Public } from 'src/core/auth/auth.constants';
-import { PaginationParams } from '../../core/constants/pagination-params';
+import { PaginationParams } from '../../core/interfaces/pagination-params';
 
 @ApiTags('spells')
 @Controller('spells')

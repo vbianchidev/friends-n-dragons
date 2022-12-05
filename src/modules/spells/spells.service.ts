@@ -20,15 +20,12 @@ export class SpellsService extends BaseService<SpellDocument> {
     return await this._spellModel.create(newSpell);
   }
 
-  async findAllPaged(documentsToSkip = 0, limitOfDocuments?: number) {
+  async findAllPaged(page = 0, limit?: number) {
     const findQuery = this._spellModel
       .find()
-      .sort({ _id: 1 })
-      .skip(documentsToSkip);
+      .limit(limit * 1)
+      .skip((page - 1) * limit);
 
-    if (limitOfDocuments) {
-      findQuery.limit(limitOfDocuments);
-    }
     const data = await findQuery;
     const count = await this._spellModel.count();
 
