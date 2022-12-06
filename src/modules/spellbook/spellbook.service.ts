@@ -24,4 +24,33 @@ export class SpellsbookService extends BaseService<Spellbook> {
       .populate('spells')
       .exec();
   }
+
+  async findOne(id: string): Promise<Spellbook> {
+    return this._spellbookModel
+      .findById(id)
+      .populate('user', { _id: 1, username: 1 })
+      .populate('spells')
+      .exec();
+  }
+
+  async removeSpell(spellbookId: string, spellId) {
+    const spellbook = await this._spellbookModel.findById(spellbookId);
+    if (spellbook) {
+      spellbook.spells = spellbook.spells.filter(
+        (spells) => !spells.equals(spellId),
+      );
+    }
+    return await this._spellbookModel.findByIdAndUpdate(spellbookId, spellbook);
+  }
+
+  async addSpell(spellbookId: string, spellId) {
+    const addspellbook = await this._spellbookModel.findById(spellbookId);
+    if (addspellbook) {
+      addspellbook.spells.push(spellId);
+    }
+    return await this._spellbookModel.findByIdAndUpdate(
+      spellbookId,
+      addspellbook,
+    );
+  }
 }

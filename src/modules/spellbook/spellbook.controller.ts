@@ -20,14 +20,26 @@ export class SpellbookController {
   findAll() {
     return this.spellbookService.findAll();
   }
-
+  @Public()
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.spellbookService.findOne(id);
   }
-
+  @Public()
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.spellbookService.remove(id);
+  }
+
+  @Public()
+  @Post('remove/:id')
+  removeSpell(@Param('id') id: string, @Body() body: { spellId: string }) {
+    return this.spellbookService.removeSpell(id, body.spellId);
+  }
+
+  @Public()
+  @Post('add/:id')
+  addSpell(@Param('id') id: string, @Body() body: { spellId: string }) {
+    return this.spellbookService.addSpell(id, body.spellId);
   }
 }
