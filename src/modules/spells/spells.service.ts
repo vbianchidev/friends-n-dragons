@@ -18,16 +18,4 @@ export class SpellsService extends BaseService<SpellDocument> {
     const newSpell = { ...body };
     return await this._spellModel.create(newSpell);
   }
-
-  async findAllPaged(page_number = 0, page_size?: number) {
-    const findQuery = this._spellModel
-      .find()
-      .limit(page_size * 1)
-      .skip((page_number - 1) * page_size);
-
-    const data = await findQuery;
-    const count = await this._spellModel.count();
-
-    return { count, data };
-  }
 }

@@ -26,4 +26,15 @@ export class BaseService<T> {
   remove(id: string) {
     return this._repository.findByIdAndDelete(id).exec();
   }
+  async findAllPaged(page_number = 0, page_size?: number) {
+    const findQuery = this._repository
+      .find()
+      .limit(page_size * 1)
+      .skip((page_number - 1) * page_size);
+
+    const data = await findQuery;
+    const count = await this._repository.count();
+
+    return { count, data };
+  }
 }
