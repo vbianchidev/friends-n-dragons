@@ -1,26 +1,38 @@
 import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+import { BaseService } from 'src/core/base/base.service';
 import { CreateClassDto } from './dto/create-class.dto';
 import { UpdateClassDto } from './dto/update-class.dto';
+import { Classes } from './entities/class.entity';
 
 @Injectable()
-export class ClassesService {
-  create(createClassDto: CreateClassDto) {
-    return 'This action adds a new class';
+export class ClassesService extends BaseService<Classes> {
+  constructor(
+    @InjectModel(Classes.name)
+    private _classesModel: Model<Classes>,
+  ) {
+    super(_classesModel);
   }
 
-  findAll() {
-    return `This action returns all classes`;
+  async newSpell(body: CreateClassDto) {
+    const newClasses = { ...body };
+    return await this._classesModel.create(newClasses);
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} class`;
+  findAll(): Promise<any[]> {
+    return this._classesModel.find().exec();
   }
 
-  update(id: number, updateClassDto: UpdateClassDto) {
-    return `This action updates a #${id} class`;
+  async findOne(id: string): Promise<Classes> {
+    return this._classesModel.findById(id);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} class`;
+  update(id: string, UpdateClassDto: UpdateClassDto) {
+    return this._classesModel.findByIdAndUpdate(id, UpdateClassDto);
+  }
+
+  remove(id: string) {
+    return this._classesModel.findByIdAndDelete(id).exec();
   }
 }
