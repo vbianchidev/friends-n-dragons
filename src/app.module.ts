@@ -8,6 +8,7 @@ import { AuthModule } from './core/auth/auth.module';
 import { JwtAuthGuard } from './core/auth/jwt-auth.guard';
 import { HealthModule } from './core/health/health.module';
 import { MainModule } from './modules/main.module';
+import { BreedModule } from './breed/breed.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { MainModule } from './modules/main.module';
     MainModule,
     AuthModule,
     MainModule,
+    BreedModule,
   ],
   controllers: [AuthController],
   providers: [
